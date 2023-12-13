@@ -16,11 +16,7 @@ public class CampingController {
     @Autowired
     private CampingServices campingServices;
 
-    @PostMapping("/create")
-    public Camping addCamping(@PathParam("titre") String titre , @PathParam("description") String description ,@PathParam("price") float price ,@PathParam("capacity") Integer capacity , @PathParam("dateCamping") Date dateCamping , @RequestParam("image") MultipartFile image){
-        return campingServices.addCamping(titre, descriptions ,capacity ,price,dateCamping,images);
-    }
-
+   
     @GetMapping
     public List<Camping> getAllCamping(){
         return campingServices.getAllCamping();
@@ -30,6 +26,12 @@ public class CampingController {
     public Camping getCampingById(@PathVariable("id") Integer id){
         return campingServices.getCampingById(id);
     }
+    
+     @PostMapping("/create")
+    public Camping addCamping(@PathParam("titre") String titre , @PathParam("description") String description ,@PathParam("price") float price ,@PathParam("capacity") Integer capacity , @PathParam("dateCamping") Date dateCamping , @RequestParam("image") MultipartFile image){
+        return campingServices.addCamping(titre, descriptions ,capacity ,price,dateCamping,images);
+    }
+
 
     @PutMapping("/update/{id}")
     public Camping updateCamping(@PathVariable("id") Integer id , @PathParam("titre") String titre , @PathParam("description") String description ,@PathParam("price") float price ,@PathParam("capacity") Integer capacity , @PathParam("dateCamping") Date dateCamping , @RequestParam("image") MultipartFile image){
