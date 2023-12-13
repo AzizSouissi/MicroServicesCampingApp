@@ -18,7 +18,7 @@ public class CampingController {
 
     @PostMapping("/create")
     public Camping addCamping(@PathParam("titre") String titre , @PathParam("description") String description ,@PathParam("price") float price ,@PathParam("capacity") Integer capacity , @PathParam("dateCamping") Date dateCamping , @RequestParam("image") MultipartFile image){
-        return campingServices.addCamping(titre,descriptions,capacity,price,dateCamping,images);
+        return campingServices.addCamping(titre, descriptions ,capacity ,price,dateCamping,images);
     }
 
     @GetMapping
